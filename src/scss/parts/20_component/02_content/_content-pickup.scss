@@ -1,0 +1,60 @@
+.content-pickup {
+	&__title {
+		&::before {
+			content: '\f0eb';
+		}
+	}
+	&__container {
+		margin-top: 20px;
+	}
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	&__item {
+		border: 1px solid $gray-d7;
+		border-radius: 5px;
+
+        @include mq(pc) {
+			$item-margin-pc: 40px;
+			$item-num-pc: 2;
+			width: getCardWith($item-margin-pc,$item-num-pc);
+			// 余白 - 上
+			&:not(:nth-child(-n+#{$item-num-pc})) {
+				margin-top: 30px;
+			}
+			// 余白 - 左
+			&:not(:nth-child(#{$item-num-pc}n+1)) {
+				margin-left: $item-margin-pc;
+			}
+		}
+        @include mq(sp) {
+			width: 100%;
+			&:not(:first-child) {
+				margin-top: 30px;
+			}
+		}
+		&--img {
+			width: 100%;
+			img {
+				width: 100%;
+			}
+		}
+		&--content {
+			padding: 20px;
+			font-size: 1.4rem;
+		}
+		&--title {
+			font-weight: $font-weight-bold;
+		}
+		&--text {
+			margin-top: 10px;
+			line-height: 1.5;
+            @include lhCrop(1.5);
+			@include mq(sp) {
+				font-size: 1.2rem;
+			}
+		}
+	}
+}

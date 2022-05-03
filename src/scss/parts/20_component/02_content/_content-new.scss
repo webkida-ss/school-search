@@ -1,0 +1,32 @@
+.content-new {
+	&__title {
+		&::before {
+			font-family: $font-family-fonwawesome;
+			content: '\f1ea';
+		}
+	}
+	&__item {
+		margin-top: 10px;
+		&--img {
+			margin-top: 10px;
+			img {
+				width: 100%;
+			}
+		}
+		&--content {
+			margin-top: 20px;
+		}
+		&--title {
+			margin-top: 5px;
+			color: $main-color;
+			font-weight: $font-weight-bold;
+			font-size: 1.8rem;
+		}
+		&--text {
+			margin-top: 10px;
+			font-size: 1.4rem;
+			line-height: 1.5;
+			@include lhCrop(1.5);
+		}
+	}
+}

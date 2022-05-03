@@ -1,0 +1,78 @@
+.contact{
+    &__title{
+        padding-bottom: 25px;
+        >.lang-china{
+            display: block;
+            margin-top: 5px;
+        }
+    }
+
+    &__form{
+        margin-top: 40px;
+
+        &--content{
+            margin-top: 20px;
+        }
+    }
+
+    &__login{
+        display: flex;
+        align-items: center;
+        @include mq(sp) {
+            display: block;
+        }
+
+        &--btn{
+            font-weight: $font-weight-bold;
+            width: 300px;
+            height: 60px;
+            background-color: $white;
+            border: 2px solid $main-color;
+            color: $main-color;
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: all $transition-change-time ease 0s;
+            @include mq(sp) {
+                width: 100%;
+            }
+            padding: 0;
+            >.lang-china{
+                display: block;
+                font-size: 1rem;
+            }
+            &:hover {
+                opacity: $hover-opacity;
+            }
+            position: relative;
+            &::before{
+                position: absolute;
+                content: '';
+                display: block;
+                background: url(../img/20_component/contact/login-arrow.png);
+                width: 20px;
+                height: 20px;
+                top: 50%;
+                left: 20px;
+                transform: translateY(-50%);
+            }
+        }
+
+        &--msg{
+            font-weight: $font-weight-bold;
+            margin-left: 20px;
+            @include mq(sp) {
+                margin: 25px 0 0 0;
+                font-size: 1.5rem;
+            }
+            >.lang-china{
+                margin-top: 3px;
+                display: block;
+                font-size: 1.2rem;
+                line-height: 1.2;
+                @include mq(sp) {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

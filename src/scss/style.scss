@@ -1,0 +1,65 @@
+@charset 'UTF-8';
+
+// config
+@import 'config/_setting';// 基本設定
+@import 'config/_mixin';// ミックスイン
+@import 'config/_function';// ファンクション
+@import 'config/_placeholder';// プレースホルダー
+@import 'config/_initialize';// 初期化
+@import 'config/_common';// 共通系
+
+// WPテンプレート ----------------------------------------------
+@import 'parts/00_template/_sidebar';
+@import 'parts/00_template/_search';
+@import 'parts/00_template/_not-found';
+@import 'parts/00_template/_front-page';
+@import 'parts/00_template/_archive-content';
+@import 'parts/00_template/_single-content';
+@import 'parts/00_template/_single-school';
+@import 'parts/00_template/_page';
+@import 'parts/00_template/_page-search-academic';
+@import 'parts/00_template/_page-sitemap';
+@import 'parts/00_template/_custom-search';
+
+// 共通系 -----------------------------------------------------
+@import 'parts/10_common/_header';// ヘッダー
+@import 'parts/10_common/_footer';// フッター
+
+
+// 部品系 ------------------------------------------------------
+
+// トップページ
+@import 'parts/20_component/01_top/_top';
+@import 'parts/20_component/01_top/_top-search';
+@import 'parts/20_component/01_top/_top-school';
+@import 'parts/20_component/01_top/_top-news';
+
+// 留学情報
+@import 'parts/20_component/02_content/_content-new';
+@import 'parts/20_component/02_content/_content-pickup';
+@import 'parts/20_component/02_content/_content-detail';
+
+// 学校詳細
+@import 'parts/20_component/03_school/_school-base';
+@import 'parts/20_component/03_school/_school-course';
+@import 'parts/20_component/03_school/_school-fee';
+@import 'parts/20_component/03_school/_school-opencanpas';
+@import 'parts/20_component/03_school/_school-access';
+
+// 検索
+@import 'parts/20_component/04_search/_search-box';// 検索窓
+@import 'parts/20_component/04_search/_search-free';// 学校を探す：自由検索
+@import 'parts/20_component/04_search/_search-area';// 学校を探す：エリア
+@import 'parts/20_component/04_search/_search-academic';// 学校を探す：学問
+@import 'parts/20_component/04_search/_search-feature';// 学問を探す：特色
+@import 'parts/20_component/04_search/_search-academic-check';// 興味がある学問をチェック
+@import 'parts/20_component/04_search/_search-feature-check';// 興味がある特色をチェック
+@import 'parts/20_component/04_search/_search-feature-content';// 特色共通部品
+@import 'parts/20_component/04_search/_search-result';// 検索結果
+
+// お問い合わせ
+@import 'parts/20_component/05_contact/_contact';// お問い合わせ/資料請求/オープンキャンパス
+@import 'parts/20_component/05_contact/_contact-confirm';// お問い合わせ/資料請求/オープンキャンパス
+@import 'parts/20_component/05_contact/_contact-complete';// お問い合わせ/資料請求/オープンキャンパス
+@import 'parts/20_component/05_contact/_contact-form';// お問い合わせフォーム
+@import 'parts/20_component/05_contact/_contact-register';// 会員登録

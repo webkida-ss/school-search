@@ -1,0 +1,68 @@
+.top {
+
+	// バナー
+	&__bunnar {
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+		margin-top: 20px;
+		.prev-arrow,
+		.next-arrow {
+			@include mq(sp) {
+				width: 20px;
+				height: 20px;
+			}  display: block;
+			position: absolute;
+			top: 50%;
+			
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			color: $main-color;
+			font-weight: $font-weight-bold;
+			cursor: pointer;
+			transition: all $transition-change-time ease 0s;
+			// background: $white;
+			&::before {
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				border-radius: 50%;
+				background: $green;
+				color: $white;
+				font-size: 3rem;
+				font-family: $font-family-fonwawesome;
+				transform: translate(-50%,-50%);
+				content: '\f138';
+			}
+			&:hover {
+				opacity: $hover-opacity;
+			}
+		}
+		.prev-arrow {
+			@include mq(sp) {
+			}  left: 0;
+			z-index: 2;
+			transform: translate(-50%,-50%) rotate(180deg);
+		}
+		.next-arrow {
+			@include mq(sp) {
+				// transform: translate(50%,-50%);
+			}  right: 0;
+			transform: translate(50%,-50%);
+		}
+
+		&--img {
+			a {
+				transition: all $transition-change-time ease 0s;
+				&:hover {
+					opacity: $hover-opacity;
+				}
+				img {
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,259 @@
+.header {
+
+    // トップ
+    &__top {
+        @include mq(sp) {
+            display: none;
+        }
+        height: 100px;
+        ul {
+            display: flex;
+            justify-content: flex-end;// 基本的に右寄せ
+            align-items: center;// 上下中央揃え
+            height: 100%;
+        }
+        li {
+            cursor: pointer;
+            transition: all $transition-change-time ease 0s;
+            &:hover {
+                opacity: $hover-opacity;
+            }
+        }
+        &--logo {
+            width: 300px;
+            .pc {
+                display: block;
+            }
+            .sp {
+                display: none;
+            }
+            @include mq(tab-only) {
+                // margin-right: 20px;
+            }
+            @include mq(sp) {
+                .pc {
+                    display: none;
+                }
+                .sp {
+                    display: block;
+                }
+            }
+            margin-right: auto;// ロゴのみ左寄せ
+        }
+        &--contact,
+        &--howto,
+        &--entry {
+            margin-right: 20px;
+        }
+        &--contact{
+            width: 200px;
+        }
+    }
+
+    // トップ（スマホ）
+    &__top-sp {
+        @include mq(sp) {
+            display: block;
+        }
+        // スマホのみ表示 ---------------------------
+        display: none;
+        height: 75px;
+        // -----------------------------------------
+        ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+        li {
+            cursor: pointer;
+            transition: all $transition-change-time ease 0s;
+            &:hover {
+                opacity: $hover-opacity;
+            }
+        }
+        &--logo,
+        &--entry,
+        &--login {
+            width: 200px;
+        }
+        &--menu {
+            width: 40px;
+        }
+    }
+
+    // ナビゲーション
+    &__nav {
+        // スマホの場合
+        @include mq(sp) {
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: map-get($layer, drawer);
+            // 最初は隠しておく
+            transform: translateX(105%);
+            width: 300px;
+            height: 100vh;
+            transition: all $transition-change-time ease 0s;
+            .inner {
+                > ul {
+                    display: block !important;
+                }
+            }
+            ul {
+                display: block;
+                width: 100% !important;
+                padding: 40px 0;
+            }
+            li {
+                width: 100% !important;
+                font-size: 1.4rem;
+                border-left: none !important;
+                border-right: none !important;
+                &:not(:first-child) {
+                    margin-top: 25px;
+                }
+                span {
+                    font-size: 1.2rem;
+                }
+            }
+            &.is-checked {
+                transform: translateX(0%); // 元の位置に移動
+            }
+        }
+        background-color: $main-color;
+
+        // PC表示
+        ul {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px 0;
+        }
+        li {
+            width: calc(100% / 5);
+            color: $white;
+            font-weight: $font-weight-bold;
+            font-size: 1.8rem;
+            line-height: 1.5;
+            text-align: center;
+            cursor: pointer;
+
+            border-left: 1px solid $white;
+            &:last-child {
+                border-right: 1px solid $white;
+            }
+            .lang-china {
+                font-size: 1.4rem;
+            }
+            position: relative;
+            top:0;
+            left: 0;
+            .sub_menu {
+                display: none;
+                width: 100%;
+                padding: 0;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                z-index:10000;
+                padding-top: 10px;
+                @include mq(sp) {
+                    display: none;
+                    position: relative;
+                    top: 0;
+                    padding-top: 0;
+                }
+                li {
+                    display: block;
+                    width: 100%;
+                    opacity: 1 !important;
+                    @include mq(sp) {
+                        margin-top: 0;
+                    }
+                    a {
+                        display: block;
+                        padding:10px 0;
+                        text-align: center;
+                        background-color: $main-color;
+                        color: $white;
+                        opacity: 1 !important;
+                    }
+                }
+            }
+            .arrow_down {
+                display: block;
+                position: absolute;
+                right: 20px;
+                @include mq(sp) {
+                    display: none;
+                    position: relative;
+                    right: initial;
+                }
+            }
+            .arrow_up {
+                display: none;
+                position: absolute;
+                right: 20px;
+                @include mq(sp) {
+                    position: relative;
+                    right: initial;
+                }
+            }
+        }
+        .sub_menu_on {
+            &:hover {
+                @include mq(pc) {
+                    .sub_menu {
+                        display: block;
+                    }
+                }
+            }
+            .sub_menu {
+                &:hover {
+                    @include mq(pc) {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    // 閉じるボタン：スマホのみ表示
+    &__close {
+        @include mq(sp) {
+            &.is-checked {
+                display: block;
+            }
+        }
+        display: none;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: map-get($layer, drawer);
+        width: 60px;
+        cursor: pointer;
+        transition: all $transition-change-time ease 0s;
+        &:hover {
+            opacity: $hover-opacity;
+        }
+    }
+
+    // ドロワー背景：スマホのみ
+    &__drawer-bg {
+        display: none;
+        opacity: .5;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: map-get($layer, drawer-bg);
+        width: 100vw;
+        height: 100vh;
+        background: $black;
+        transition: all $transition-change-time ease 0s;
+        &.is-checked {
+            display: block;
+            opacity: .5;
+        }
+    }
+}

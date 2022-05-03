@@ -1,0 +1,95 @@
+.search-feature-check{
+
+    $item-margin-pc: 35px;
+	$item-num-pc: 3;
+
+	&__title{
+		color: $black;
+		font-size: 2.4rem;
+		@include mq(sp) {
+			font-size: 2rem;
+		}
+		>.lang-china{
+			display: block;
+			margin-top: 5px;
+			font-size: 1.8rem;
+			@include mq(sp) {
+				font-size: 1.4rem;
+			}	
+		}
+	}
+
+    &__container{
+        margin-top: 35px;
+    }
+
+    &__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+	}
+	&__item {
+		position: relative;
+		height: 60px;
+
+		padding: 10px 0;
+		border: 2px solid $main-color;
+
+		@include mq(pc) {
+			$item-margin-pc: 35px;
+			$item-num-pc: 3;			
+			// 1枚あたりのサイズ
+			width: getCardWith($item-margin-pc,$item-num-pc);
+			// 余白 - 上
+			&:not(:nth-child(-n+#{$item-num-pc})) {
+				margin-top: 20px;
+			}
+			// 余白 - 左
+			&:not(:nth-child(#{$item-num-pc}n+1)) {
+				margin-left: $item-margin-pc;
+			}
+		}
+		@include mq(sp) {
+			$item-margin-pc: 10px;
+			$item-num-pc: 2;			
+			// 1枚あたりのサイズ
+			width: getCardWith($item-margin-pc,$item-num-pc);
+			// 余白 - 上
+			&:not(:nth-child(-n+#{$item-num-pc})) {
+				margin-top: 20px;
+			}
+			// 余白 - 左
+			&:not(:nth-child(#{$item-num-pc}n+1)) {
+				margin-left: $item-margin-pc;
+			}
+		}
+		&--text {
+			display: block;
+			width: 100%;
+			color: $main-color;
+			text-align: center;
+			cursor: pointer;
+			>.lang-china {
+				font-size: 1rem;
+			}
+			@include mq(sp) {
+				font-size: 1.2rem;
+				>.lang-china {
+					font-size: 1rem;
+				}
+			}
+		}
+
+		&::before {
+			position: absolute;
+			top: 50%;
+			left: 10px;
+			transform: translateY(-50%);
+			color: $main-color;
+			font-weight: $font-weight-bold;
+			font-family: $font-family-fonwawesome;
+			content: '\f138';
+		}
+	}
+
+}

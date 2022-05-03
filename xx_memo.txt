@@ -1,0 +1,5 @@
+assets
+　css
+　　webfonts使用
+　　css：all.min.css、fab.cssはいただいたものを活用
+xx_memo.txt

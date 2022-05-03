@@ -1,0 +1,36 @@
+.page {
+
+    &__content{
+        line-height: 1.6;
+
+        .lang-china-han,.lang-china-kan{
+            margin-top: 40px;
+        }
+        h2{
+            display: block;
+            font-size: 1.4em;
+        }
+        p,dl{
+            margin-top: 20px;
+        }
+        strong{
+            display: block;
+            color: red;
+        }
+        dl{
+            div{
+                display: flex;
+                dt{
+                    display: inline-block;
+                    flex-shrink: 0;
+                }
+                dd{
+
+                }
+            }
+        }
+        @include mq(sp) {
+            font-size: 1.2rem;
+        }
+    }
+}

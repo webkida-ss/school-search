@@ -1,0 +1,102 @@
+.school-course {
+
+	&__item-jp,
+	&__item-ch {
+		&--title {
+			&::before {
+				// pen-nib
+				content: '\f5ad';
+			}
+		}
+		&--content {
+			margin-top: 20px;
+			padding: 30px;
+			border: 1px solid $gray-d7;
+			border-radius: 5px;
+            @include mq(sp) {
+                padding: 20px;
+            }
+		}
+		&--text {
+			span {
+				color: $main-color;
+				font-weight: $font-weight-bold;
+				font-size: 2rem;
+                @include mq(sp) {
+                    font-size: 1.6rem;
+                }
+			}
+			p {
+				margin-top: 10px;
+				line-height: 1.5;
+                @include lhCrop(1.5);
+                @include mq(sp) {
+                    font-size: 1.2rem;
+                }
+			}
+            @include mq(sp) {
+                margin-top: 10px;
+            }
+		}
+	}
+
+	&__item-jp {
+
+		&--item {
+			display: flex;
+			justify-content: flex-start;
+
+			margin-top: 40px;
+            @include mq(sp) {
+				display: block;
+                &:first-child{
+                    margin: 0;
+                }
+                &:not(:first-child){
+                    margin-top: 20px;
+                }
+			}
+            &:not(:first-child){
+                @include mq(sp) {
+                    margin-top: 20px;
+                }
+            }
+        }
+		&--img {
+			width: 240px;
+
+			@include mq(sp) {
+				width: 100%;
+			}
+			img {
+				width: 100%;
+			}
+		}
+		&--text {
+			width: calc( 100% - 240px - 30px );
+
+			margin-left: 30px;
+            @include mq(sp) {
+				width: 100%;
+				margin-left: 0;
+			}
+		}
+	}
+	&__item-ch {
+		margin-top: 50px;
+        &--text{
+            span{
+                &:not(:first-child){
+                    margin-top: 20px;
+                }
+                display: block;
+                line-height: 1;
+            }
+            p{
+                margin-top: 10px;
+                line-height: 1.5;
+                @include lhCrop(1.5);
+            }
+        }
+	}
+}

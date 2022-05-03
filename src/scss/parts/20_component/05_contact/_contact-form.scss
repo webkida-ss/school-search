@@ -1,0 +1,580 @@
+// 入力画面
+.contact-form {
+
+    &__text{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: 40px;
+        font-weight: $font-weight-bold;
+        @include mq(sp) {
+            display: block;
+        }
+
+        &--info{
+            color: $main-color;
+            font-size: 2.4rem;
+            >.lang-china{
+                display: block;
+                font-size: 1.2rem;
+                margin-top: 5px;
+                @include mq(sp) {
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        &--msg{
+            font-size: 1.4rem;
+            @include mq(sp) {
+                margin-top: 10px;
+            }
+            span{
+                display: block;
+                font-size: 1rem;
+                line-height: 1.2;
+                margin-top: 3px;
+            }
+        }
+    }
+
+    %pseudo-base{
+        &::before,
+        &::after {
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 50%;
+            content: '';
+            transition: all $transition-change-time ease 0s;
+        }
+        &::before {
+            border-color: transparent;
+        }
+        &::after {
+            border-color: #7d7d7d;
+        }
+    }
+
+    &__event{
+        padding: 30px;
+        border: 1px solid $gray;
+        border-radius: 5px;
+        &--content{
+            @extend %event;
+        }
+    }
+
+    ul {
+        margin-top: 20px;
+        padding: 30px;
+        border: 1px solid $gray;
+        border-radius: 5px;
+        color: $main-color;
+        &.input02{
+            display: none;
+        }
+
+        @include mq(sp) {
+            padding: 20px;
+        }
+
+        li.hidden {
+            display: none;
+        }
+
+        li {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            border-bottom: 1px solid $gray;
+            @include mq(sp) {
+                display: block;
+                font-size: 1.4rem;
+
+                border-bottom: none;
+            }
+
+            &:first-child {
+                padding-bottom: 20px;
+
+                @include mq(sp) {
+                    padding-bottom: 0;
+                }
+            }
+            &:not(:first-child) {
+                padding: 20px 0;
+
+                @include mq(sp) {
+                    padding: 20px 0 0 0;
+                }
+            }
+
+            label {
+                display: inline-block;
+                width: (290/940)*100%;
+                font-weight: $font-weight-bold;
+                font-size: 1.4rem;
+                line-height: 1.5;
+
+                @include mq(sp) {
+                    font-size: 1rem;
+                }
+                @include mq(sp) {
+                    width: 100%;
+                }
+                >.lang-jp {
+                    display: inline-block;
+                    position: relative;
+                    font-size: 1.6rem;
+                    font-family: $font-family-default;
+
+                    @include mq(sp) {
+                        font-size: 1.4rem;
+                    }
+                }
+                
+
+                &.is-required {
+                    >.lang-jp {
+                        &::after {
+                            display: block;
+                            position: absolute;
+                            top: 0;
+                            right: -40px;
+                            color: red;
+                            font-weight: normal;
+                            content: '*必須';
+
+                            @include mq(sp) {
+                                top: auto;
+                                right: -28px;
+                                bottom: 0;
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+            // ------------------------------------------
+            // 入力系
+            // ------------------------------------------
+            div {
+                flex-shrink: 0;
+                margin-left: (60/940)*100%;
+
+                // 共通設定：divで囲うためクラス付与
+                &.input,
+                &.textarea,&.select{
+                    @include mq(sp) {
+                        margin: 10px 0 0 0;
+                    }
+                    input,
+                    textarea ,select{
+                        padding: 10px;
+                        border: 1px solid $gray;
+                        font-weight: normal;
+                        outline: none;
+                        transition: all $transition-change-time ease 0s;
+                        letter-spacing: 0.05em;
+                        &:focus,
+                        &:hover {
+                            box-shadow: 0px 0px 5px 0px $main-color;
+                        }
+                    }    
+                    span{
+                        &.error{
+                            display: block;
+                            margin-top: 3px;
+                        }
+                    }
+                }
+                // 個別設定
+                &.input {
+                    width: (320/940)*100%;
+                    height: 40px;
+                    // ショートバージョン
+                    &.short{
+                        width: (200/940)*100%;
+                        @include mq(sp) {
+                            width: 100%;
+                        }
+                    }
+                    // ロングバージョン
+                    &.long{
+                        width: (500/940)*100%;
+                        @include mq(sp) {
+                            width: 100%;
+                        }
+                    }
+                    @include mq(sp) {
+                        width: 100%;
+                    }
+                    input {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                &.textarea {
+                    width: (500/940)*100%;
+                    height: 100px;
+                    line-height: 1.5;
+
+                    @include mq(sp) {
+                        width: 100%;
+                    }
+                    textarea {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                &.select{
+                    color: black;
+                    flex: 1;
+                    &.birthday{
+                        select{
+                            @include mq(sp) {
+                                width: 25%;
+                            }
+                        }
+                    }
+                    &.prefecture{
+                        select{
+                            @include mq(sp) {
+                                width: 100%;
+                            }
+                        }
+                    }
+                    &.schedule{
+                        select{
+                            @include mq(sp) {
+                                width: 40%;
+                            }
+                        }
+                    }
+                    select{
+                        width: (120/590)*100%;
+                        height: 40px;
+                    }
+                }
+                // ラジオボタン（性別）
+                &.input.jender{
+                    display: flex;
+                    align-items: center;
+                    span{// アイテム1つ
+                        &:first-child{
+                            margin-left: 30px;
+                        }
+                        &:nth-of-type(2){
+                            margin-left: 50px;
+                        }
+
+                        display: block;
+                        position: relative;
+                        label{
+                            display: block;
+                            width: auto;
+                            input[type="radio"]{
+                                display: none;
+                                &:checked {
+                                    & + span {
+                                        &::before {
+                                            background-color: $main-color;
+                                        }
+                                    }
+                                }
+                            }
+                            span{
+                                font-weight: normal;
+                                color: black;
+                                cursor: pointer;
+                                transition: all $transition-change-time ease 0s;
+                                &:hover {
+                                    opacity: $hover-opacity;
+                                }
+                                @extend %pseudo-base;
+                                &::before {
+                                    left: -25px;
+                                    width: 10px;
+                                    height: 10px;
+                                }
+                                &::after {
+                                    left: -30px;
+                                    width: 20px;
+                                    height: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // 注意書き
+            p {
+                display: inline-block;
+                width: (255/940)*100%;
+                margin-left: 10px;
+                color: black;
+                font-size: 1.4rem;
+
+                @include mq(sp) {
+                    display: inline-block;
+                    width: 100%;
+                    margin-top: 10px;
+                    margin-left: 0;
+                    font-size: 1.1rem;
+                }
+                span {
+                    font-size: 1.2rem;
+                    @include mq(sp) {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .hide {
+        display: none;
+    }
+
+    // 個人情報保護方針（ラジオボタン含む）
+    &__privacy {
+        @include mq(sp) {
+            font-size: 1.4rem;
+        }
+        &--text {
+            margin-top: 60px;
+            line-height: 1.5;
+            text-align: center;
+
+            @include mq(sp) {
+                margin-top: 35px;
+            }
+            a {
+                text-decoration: underline $gray;
+            }
+            >.lang-china-han,>.lang-china-kan {
+                display: block;
+                @include mq(sp) {
+                    display: inline-block;
+                    font-size: 1rem;
+                }
+            }
+        }
+        &--check {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+
+            @include mq(sp) {
+                margin-top: 20px;
+            }
+
+            // チェックボックス1つ
+            span {
+                display: inline-block;
+                &:not(:first-child) {
+                    margin-left: 60px;
+                }
+                label {
+                    input {
+                        display: none;
+                        &:checked {
+                            & + span {
+                                &::before {
+                                    background-color: $main-color;
+                                }
+                            }
+                        }
+                    }
+                    span {
+                        position: relative;
+                        font-size: 1.4rem;
+                        line-height: (24/14);
+                        cursor: pointer;
+                        transition: all $transition-change-time ease 0s;
+                        &:hover {
+                            opacity: $hover-opacity;
+                        }
+                        @extend %pseudo-base;
+                        &::before {
+                            left: -32.5px;
+                            width: 15px;
+                            height: 15px;
+                        }
+                        &::after {
+                            left: -40px;
+                            width: 30px;
+                            height: 30px;
+                        }
+                        p {
+                            font-family: "Noto Sans TC",sans-serif;
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 確認ボタン
+    button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 80px;
+        margin: 45px auto 0;
+        border: 1px solid $sub-color;
+        border-radius: 4px;
+        background-color: $sub-color;
+        color: $white;
+        font-weight: $font-weight-bold;
+        cursor: pointer;
+        transition: all $transition-change-time ease 0s;
+
+        @include mq(sp) {
+            width: 100%;
+            height: 50px;
+            margin: 20px 0 0 0;
+        }
+        .lang-china-han,.lang-china-kan {
+            font-size: 1rem;
+        }
+
+        &:hover {
+            opacity: $hover-opacity;
+        }
+        // 戻るボタン
+        &.back {
+            border: 1px solid $gray;
+            background-color: $gray;
+        }
+    }
+}
+
+// 確認画面
+.mw_wp_form_confirm {
+    .contact-form {
+
+        &__text{
+            display: none;
+        }
+
+        &__event{
+            border: none;
+            &--content{
+                display: block;
+                border-bottom: none;
+            }
+            label{
+                display: none;
+            }
+            text-align: center;
+            color: $main-color;
+            font-weight: $font-weight-bold;
+            font-size: 2rem;
+            
+        }
+
+        ul {
+            border: none;
+
+            li.hidden {
+                display: flex;
+            }
+
+            li {
+                border: none;
+
+                label {
+                    // 必須マーク
+                    &.is-required {
+                        span {
+                            &::after {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                p {
+                    display: none;
+                }
+                // 入力値
+                div {
+                    flex: 1;// 残り全部
+                    width: auto;
+                    height: auto;
+                    color: black;
+                    word-break: break-all;// 半角英数字の場合でも途中で矯正的に折り返し
+                }
+            }
+        }
+        // 個人情報保護方針
+        &__privacy {
+            display: none;
+        }
+    }
+}
+
+.input02 {
+    margin-top:20px;
+}
+
+// 完了画面
+.mw_wp_form_complete{
+    text-align: center;
+    line-height: 1.4;
+}
+
+
+.contact-complete__register {
+    text-align: center;
+
+    // トップメッセージ
+    .top-msg{
+        color: $main-color;
+        font-size: 3.6rem;
+        font-weight: $font-weight-bold;
+        @include mq(sp) {
+            font-size: 1.6rem;
+        }
+        >.lang-china {
+            display: block;
+            margin-top: 5px;
+            font-size: 1.4rem;
+            @include mq(sp) {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    // メール送信/リマインド
+    .send-mail,.remind{
+        margin-top: 40px;
+        @include mq(sp) {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+        span {
+            margin-top: 5px;
+            display: block;
+            font-size: 1.4rem;
+            @include mq(sp) {
+                font-size: 1rem;
+            }
+        }
+    }
+    .remind{
+        margin-bottom: 40px;
+        a{
+            text-decoration: underline;
+        }
+    }
+
+}

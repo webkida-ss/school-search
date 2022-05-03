@@ -1,0 +1,73 @@
+// --------------------------------------------------
+// 基本設定
+// --------------------------------------------------
+
+// カラー
+$black: #16191c;
+$white: #fff;
+$light-gray: #f5f5f5;
+$gray: #c6c6c6;
+$gray-d7: #d7d7d7;
+$dark-red: #a87570;
+$green: #6c8650;
+$beige: #eae4d1;
+$main-color: $dark-red;
+$sub-color: $green;
+
+// ---
+$color-background-base: $white; // 背景色
+$color-text-base: $black; // テキスト色
+$hover-opacity: .6; // 透過度
+
+// 余白
+$padding-pc: 300px;
+$padding-narrow-pc: 400px;
+$padding-sp: 15px;
+$padding-narrow-sp: 20px;
+
+// レイアウト幅
+$layout-width-canvas-pc: 1800px;
+$layout-width-inner-pc: $layout-width-canvas-pc - ($padding-pc * 2);
+$layout-width-inner-narrow-pc: $layout-width-canvas-pc - ($padding-narrow-pc * 2);
+$layout-width-canvas-sp: 375px;
+$layout-width-inner-sp: $layout-width-canvas-sp - ($padding-sp * 2);
+$layout-width-inner-narrow-sp: $layout-width-canvas-sp - ($padding-narrow-sp * 2);
+
+// 階層
+$layer: (
+	modal: 100, // モダール
+	drawer: 40, // ドロワー
+	drawer-bg: 39, // ドロワーバックグラウンド
+	floating: 30, // フローティングアイテム
+	header: 20, // ヘッダー
+	footer: 10, // フッター
+	default: 1,
+);
+
+// トランジションタイム
+$transition-change-time: 0.3s;
+
+// ---------------------------------------------------------------------------
+// フォント
+// ---------------------------------------------------------------------------
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap');
+$font-family-default: 'Noto Sans JP', sans-serif;
+// $font-family-chinese-han: 'Noto Sans TC', sans-serif;
+$font-family-chinese-kan: 'Noto Sans SC', sans-serif;
+$font-family-fonwawesome: 'Font Awesome 5 Free';
+$font-family-base: $font-family-default;
+$font-weight-base: 400;
+$font-weight-bold: 700;
+$line-height-base: 1;// 基本設定
+$line-height-pra-base: 1.6;// 文章の場合の基本設定
+// フォントサイズ
+$font-size-base: 1.6rem; // 基準サイズ
+
+// ブレイクポイント
+$max-width-sp: 768;
+$max-width-tab: 1200;
+$breakpoints: (
+	'sp': '(max-width: #{$max-width-sp}px)', // 〜768
+	'tab-only': '(min-width: #{$max-width-sp + 1}px) and (max-width: #{$max-width-tab}px)', // 769〜1200：トップページのみ
+	'pc': '(min-width: #{$max-width-sp + 1}px)', // 769〜
+);

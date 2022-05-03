@@ -1,0 +1,126 @@
+.top-news {
+
+	&__title {
+		br {
+			@include mq(pc) {
+				display: none;
+			}
+		}
+		> .lang-china {
+			display: block;
+			margin-top: 5px;
+			margin-left: 0;
+		}
+		&::before {
+			content: '\f05a';
+		}
+	}
+
+	&__container {
+@include mq(sp) {
+			height: auto;
+		}
+		position: relative;
+
+		height: auto;
+		margin-top: 30px;
+		padding: 30px;
+		border-radius: 5px;
+		background-color: $light-gray;
+	}
+
+	&__list {
+@include mq(sp) {
+			display: block;
+		} 
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+ position: relative;
+		// 矢印
+		> img {
+			position: absolute;
+			top: 150px;
+			cursor: pointer;
+			transition: all $transition-change-time ease 0s;
+			&:hover {
+				opacity: $hover-opacity;
+			}
+			&:nth-of-type(1) {
+				left: 0;
+				z-index: 2;
+				transform: translateX(-50%);
+			}
+			&:nth-of-type(2) {
+				right: 0;
+				transform: translateX(50%);
+			}
+		}
+	}
+	&__item {
+@include mq(pc) {
+			$item-margin-pc: 20px;
+			$item-num-pc: 2;
+			width: getCardWith($item-margin-pc,$item-num-pc);
+
+// 余白 - 左右
+			padding: 0 .1%;
+			// 余白 - 上
+			&:not(:nth-child(-n+#{$item-num-pc})) {
+				margin-top: $item-margin-pc;
+			}
+		}
+
+@include mq(sp) {
+			& + & {
+				margin-top: 20px;
+			}
+		}
+
+		border-radius: 5px;
+		box-sizing: content-box;
+		a {
+			display: block;
+		}
+		&--img {
+			width: 100%;
+			img {
+				width: 100%;
+			}
+		}
+		&--content {
+			padding: 20px;
+			background-color: $white;
+			font-size: 1.4rem;
+		}
+		&--title {
+			font-weight: $font-weight-bold;
+			> .lang-china {
+                display: block;
+				// > .lang-china-han,
+				// .lang-china-kan {
+				// }
+			}
+		}
+		&--text {
+			margin-top: 10px;
+			line-height: 1.4;
+		}
+	}
+
+	&__arrow {
+@include mq(sp) {
+			display: none;
+		}
+
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		&:nth-of-type(1) {
+			left: 15px;
+		}
+		&:nth-of-type(2) {
+			right: 15px;
+		}
+	}
+}

@@ -1,0 +1,157 @@
+.sidebar {
+	$border: 1px solid $gray-d7;
+
+	// サイドバータイトル
+	%sidebar-title {
+		@include mq(sp) {
+			font-size: 1.6rem;
+			> .lang-china {
+				font-size: 1.2rem;
+			}
+		}
+		position: relative;
+		padding-left: 30px;
+		font-weight: $font-weight-bold;
+		font-size: 2rem;
+		> .lang-china {
+			display: block;
+			margin-top: 5px;
+			margin-left: 0;
+			font-size: 1.2rem;
+		}
+		&::before {
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 0px;
+			transform: translateY(-50%);
+			color: $sub-color;
+			font-size: 1.8rem;
+			font-family: $font-family-fonwawesome;
+		}
+	}
+	// 新着情報
+	&__news {
+		&--title {
+			@extend %sidebar-title;
+			&::before {
+				content: '\f1ea';
+			}
+		}
+
+		&--list {
+			@include mq(sp) {
+				margin-top: 10px;
+			}
+			margin-top: 20px;
+			padding: 0 20px;
+			border: $border;
+			border-radius: 5px;
+		}
+		&--item {
+			@include mq(sp) {
+				font-size: 1.2rem;
+			}
+			margin-top: 20px;
+			padding-bottom: 20px;
+			font-size: 1.4rem;
+			&:not(:last-child) {
+				border-bottom: $border;
+			}
+			time {
+				color: $dark-red;
+				font-weight: $font-weight-bold;
+			}
+			p {
+				@include lhCrop(1.4);
+				margin-top: 10px;
+				line-height: 1.4;
+			}
+		}
+	}
+	// 新学校情報
+	&__school {
+		@include mq(sp) {
+			margin-top: 30px;
+		}
+		margin-top: 70px;
+		&--title {
+			@extend %sidebar-title;
+			&::before {
+				content: '\f07c';
+			}
+		}
+		&--list {
+			@include mq(sp) {
+				margin-top: 10px;
+			}
+			margin-top: 20px;
+			padding: 0 20px;
+			border: $border;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+		}
+		&--item {
+			@include mq(sp) {
+				font-size: 1.2rem;
+			}
+			margin-top: 20px;
+			padding-bottom: 20px;
+			font-size: 1.4rem;
+			&:not(:last-child) {
+				border-bottom: $border;
+			}
+			time {
+				font-weight: $font-weight-bold;
+			}
+			p {
+				@include lhCrop(1.4);
+				@include mq(sp) {
+					font-size: 1.2rem;
+				}
+				margin-top: 10px;
+				color: $main-color;
+				font-size: 1.6rem;
+				line-height: 1.4;
+			}
+		}
+		// もっと見るボタン
+		&--link {
+			@include mq(sp) {
+				font-size: 1.4rem;
+			}
+			position: relative;
+			width: 100%;
+			height: 50px;
+			border-bottom-right-radius: 5px;
+			border-bottom-left-radius: 5px;
+			background-color: $main-color;
+			font-weight: $font-weight-bold;
+			cursor: pointer;
+			a {
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				width: 100%;
+				color: $white;
+				font-weight: $font-weight-bold;
+				line-height: 1.2;
+				text-align: center;
+			}
+
+			&::before {
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 15px;
+				transform: translateY(-50%);
+				color: $white;
+				font-weight: $font-weight-bold;
+				font-family: $font-family-fonwawesome;
+				content: '\f138';
+			}
+		}
+	}
+}

@@ -1,0 +1,65 @@
+.contact-register {
+	border: 1px solid $gray;
+	border-radius: 5px;
+	padding: 50px 0;
+	width: 600px;
+	margin: 0 auto;
+	text-align: center;
+	@include mq(sp) {
+		width: 100%;
+		padding: 20px 0;
+	}
+
+
+	&__container{
+	
+	}
+
+	&__top-msg,&__bottom-msg{
+		@include mq(sp) {
+			font-size: 1.4rem;
+		}
+		span{
+			margin-top: 10px;
+			display: block;
+			font-size: 1.4rem;
+			@include mq(sp) {
+				font-size: 1rem;
+			}
+		}
+	}
+	&__bottom-msg{
+		margin-top: 20px;
+	}
+
+	&__btn{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 300px;
+		height: 80px;
+		margin: 20px auto 0;
+		border: 1px solid $sub-color;
+		border-radius: 4px;
+		background-color: $sub-color;
+		color: $white;
+		font-weight: $font-weight-bold;
+		cursor: pointer;
+		transition: all $transition-change-time ease 0s;
+
+		@include mq(sp) {
+			width: 80%;
+			height: 50px;
+			margin: 20px auto 0;
+		}
+		>.lang-china {
+			display: block;
+			font-size: 1rem;
+		}
+
+		&:hover {
+			opacity: $hover-opacity;
+		}
+	}
+}

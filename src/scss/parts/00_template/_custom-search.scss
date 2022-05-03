@@ -1,0 +1,21 @@
+.custom-search {
+	&__title {
+		padding-bottom: 25px;
+		> .lang-china {
+			display: block;
+			margin-top: 5px;
+		}
+	}
+	&__search-free {
+		margin-top: 25px;
+	}
+	&__search-area {
+		margin-top: 35px;
+	}
+	&__search-academic {
+		margin-top: 60px;
+	}
+	&__search-feature {
+		margin-top: 60px;
+	}
+}

@@ -1,0 +1,57 @@
+.school-fee {
+
+	&__item {
+		&:not(:first-child){
+			margin-top: 50px;
+		}
+	}
+
+	&__title {
+		&::before {
+			content: '\f15c';//file-alt
+		}
+	}
+
+	&__content {
+		margin-top: 20px;
+		padding: 30px;
+		border: 1px solid $gray;
+		border-radius: 5px;
+		@include mq(sp) {
+			padding: 20px;
+		}
+	}
+
+	&__exam {
+		&--title {
+			font-size: 1.8;
+			color: $main-color;
+		}
+		&--text {
+			margin-top: 20px;
+			line-height: 1.5;
+			@include lhCrop(1.5);
+			@include mq(sp) {
+				font-size: 1.2rem;
+			}
+		}
+	}
+
+	&__cost {
+		margin-top: 50px;
+		&--title {
+			color: $main-color;
+		}
+		&--text {
+			height: 300px;
+
+			margin-top: 20px;
+			border: 1px solid $light-gray;
+			line-height: 1.5;
+			@include lhCrop(1.5);
+			@include mq(sp) {
+				font-size: 1.2rem;
+			}
+		}
+	}
+}

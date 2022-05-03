@@ -1,0 +1,186 @@
+.search-academic-check {
+	$item-num-pc: 4;
+
+	&__title{
+		color: $black;
+		padding-bottom: 25px;
+		font-size: 2.4rem;
+		@include mq(sp) {
+			font-size: 2rem;
+		}
+		>.lang-china{
+			display: block;
+			margin-top: 5px;
+			font-size: 1.8rem;
+			@include mq(sp) {
+				font-size: 1.4rem;
+			}	
+		}
+	}
+	&__container{
+		button{
+			margin-top: 25px;
+		}
+	}
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		margin-top: 40px;
+		padding: 20px;
+		border: 2px solid $gray;
+		border-radius: 5px;
+		@include mq(sp) {
+			display: block;
+			padding: 0;
+		}
+	}
+	&__item {
+		position: relative;
+		width: calc(100% / #{$item-num-pc});
+		padding-bottom: 30px;
+		border-bottom: 2px solid $gray;
+
+		@include mq(sp) {
+			padding: 10px 0;
+		}
+		
+		@include mq(sp) {
+			width: 100%;
+			border-bottom: 1px solid $gray;
+		}
+		
+		// 余白関連 ------------------------------------
+		// 上 
+		&:not(:nth-child(-n+#{$item-num-pc})) {
+			margin-top: 35px;
+			@include mq(sp) {
+				margin-top: 0;
+			}
+		}
+		// --------------------------------------------
+		// 最終行以外
+		&.last-row {
+			padding-bottom: 0;
+			border-bottom: none;
+			@include mq(sp) {
+				padding: 10px 0;
+				border-bottom: 1px solid $gray;
+			}
+		}
+
+		&--detail-item {
+			font-size: 1.4rem;
+			position: relative;
+			@include mq(sp) {
+				padding: 0 20px;
+			}
+			&:not(:first-child){
+				padding-left: 20px;
+				@include mq(sp) {
+					padding: 0 20px 0 40px;
+				}
+			}
+			// フォント関連 ------------------------------------
+			&:first-child {
+				font-weight: $font-weight-bold;
+				font-size: 1.8rem;
+			}
+			.lang-china {
+				font-size: 1rem;
+			}
+			// ------------------------------------------------
+
+			& + & {
+				margin-top: 20px;
+
+				@include mq(sp) {
+					display: none;
+				}
+			}
+
+			// 入力 ------------------------
+			input[type='checkbox'] {
+				display: none;
+				// チェックがついた場合隣接するlabelの疑似要素を表示
+				&:checked {
+					& + label {
+						&::after {
+							display: block;
+						}
+					}
+				}
+			}
+			label {
+				display: block;
+				position: relative;
+				padding-left: 30px;
+				cursor: pointer;
+
+				@include mq(sp) {
+					// padding-right: 50px;
+					margin-right: 50px;
+				}
+				&:hover {
+					opacity: $hover-opacity;
+				}
+				// チェックボックス自作
+				&::before,
+				&::after {
+					display: block;
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					content: '';
+				}
+				&::before {
+					top: 50%;
+					left: 0;
+					transform: translateY(-50%);
+					width: 20px;
+					height: 20px;
+					border: 1px solid $gray;
+				}
+				&::after {
+					display: none;
+					top: 50%;
+					left: 5px;
+					transform: translateY(-50%) rotate(45deg) ;
+					width: 10px;
+					height: 12px;
+
+					border-bottom: 2px solid $black;
+					border-right: 2px solid $black;
+				}
+			}
+			div {
+				display: none;
+				transition: all $transition-change-time ease 0s;
+			}
+			&:first-child {
+				@include mq(sp) {
+					div {
+						display: block;
+						position: absolute;
+						top: 50%;
+						right: 20px;
+						transform: translateY(-50%) rotate(45deg);
+						width: 12px;
+						height: 12px;
+						cursor: pointer;
+
+						border-right: 3px solid $main-color;
+						border-bottom: 3px solid $main-color;
+
+						&.reverse {
+							transform: rotate(-135deg);
+						}
+						&:hover{
+							box-shadow: 0px 0px 5px 0px $main-color;
+						}
+					}
+				}
+			}
+		}
+	}
+}

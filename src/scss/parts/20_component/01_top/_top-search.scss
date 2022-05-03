@@ -1,0 +1,359 @@
+.top-search {
+
+    // タイトル
+    &__title {
+        &::before {
+            content: '\f549';
+        }
+        >.lang-china{
+            display: block;
+            margin-top: 5px;
+            margin-left: 0;
+        }
+    }
+    // サブタイトル
+    &__sub-title {
+        font-size: 1.8rem;
+
+        @include mq(sp) {
+            font-size: 1.4rem;
+            >.lang-china {
+                font-size: 1rem;
+            }
+        }
+        >.lang-china {
+            display: block;
+            margin-top: 5px;
+            font-size: 1.4rem;
+        }
+    }
+
+    &__container {
+        display: grid;
+        margin-top: 25px;
+        padding: 30px;
+        border: 1px solid $light-gray;
+        border-radius: 5px;
+        background-color: $light-gray;
+        // grid-template-rows: 454px 106px;
+
+        grid-template-rows: 470px 106px;
+        grid-template-columns: 400px 30px 1fr;// 真ん中に余白
+
+        @include mq(tab-only) {
+            display: block;
+        }
+
+        @include mq(sp) {
+            display: block;
+        }
+    }
+
+    // | 　　　　　　　 | 　　 | 　　　　　　 |
+    // | エリア検索　　 | 　　 | 　　　　　　 |
+    // | 　　　　　　　 | 余白 | 条件検索　　 |
+    // | ーーーーーーー | 　　 | 　　　　　　 |
+    // | キーワード検索 | 　　 | 　　　　　　 |
+    // | ーーーーーーー | 　　 | 　　　　　　 |
+    
+    // エリア：座標（1,1）
+    &__area {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        &--content {
+            position: relative;
+        }
+        &--map {
+            margin-top: 20px;
+            border: 3px solid $main-color;
+            border-radius: 5px;
+            img {
+                width: 100%;
+            }
+        }
+        &--region {
+            position: absolute;
+            border: 2px solid $main-color;
+            border-radius: 5px;
+            background-color: $white;
+            @include mq(sp) {
+                font-size: 1.2rem;
+                .lang-china {
+                    font-size: 1rem;
+                }
+            }
+            form{
+                width: 100%;
+                height: 100%;
+                button{
+                    display: block;
+                    padding: 15px 10px;
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                    background-color: transparent;
+                    font-weight: $font-weight-bold;
+                    font-size: 1.4rem;
+                    text-align: center;
+                    line-height: 1.3;
+                    cursor: pointer;
+                    transition: all $transition-change-time ease 0s;
+                    &:hover {
+                        opacity: $hover-opacity;
+                    }
+                }
+            }
+            .lang-china {
+                font-size: 1.0rem;
+            }
+            
+            // 北海道・東北
+            &.hokkaido {
+                top: 15%;
+
+                right: 22%;
+                @include mq(tab-only) {
+                    top: 8%;
+                    right: 20%;
+                }
+
+                @include mq(sp) {
+                    top: 5%;
+                    right: 3%;
+                }
+            }
+            // 関東・甲信越
+            &.kanto {
+                right: 20%;
+                bottom: 30%;
+
+                @include mq(tab-only) {
+                    bottom: 25%;
+                    right: 20%;
+                }
+
+                @include mq(sp) {
+                    right: 15%;
+                    bottom: 38%;
+                }
+            }
+            // 甲信越・北陸
+            &.koshinetsu {
+                right: 40%;
+                bottom: 40%;
+                @include mq(tab-only) {
+                    right: 50%;
+                    bottom: 45%;
+                }
+            }
+            // 近畿・東海
+            &.kinki {
+                bottom: 20%;
+                left: 36%;
+                @include mq(tab-only) {
+                    bottom: 15%;
+                    left: 45%;
+                }
+                @include mq(sp) {
+                    bottom: 10%;
+                    // top: 10%;
+                    left: 46%;
+                }
+            }
+            // 中国
+            &.chugoku {
+                bottom: 5%;
+                left: 22%;
+                @include mq(tab-only) {
+                    bottom: 10%;
+                }
+                @include mq(sp) {
+                    left: 26%;
+                }
+            }
+            // 九州
+            &.kyushu {
+                bottom: 25%;
+                left: 5%;
+                @include mq(tab-only) {
+                    bottom: 20%;
+                }
+                @include mq(sp) {
+                    bottom: 30%;
+                    // top: 15%;
+                }
+            }
+        }
+    }
+
+    // キーワード：座標（1,2）
+    &__keyword {
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+
+        @include mq(tab-only) {
+            margin-top: 25px;
+        }
+
+        @include mq(sp) {
+            margin-top: 20px;
+        }
+
+        &--input {
+            position: relative;
+            width: 100%;
+            height: 40px;
+            margin-top: 20px;
+            input {
+                font-size: 1.8rem;
+                width: inherit;
+                height: inherit;
+                padding: 10px 40px 10px 20px;
+                border: none;
+                border-radius: 30px;
+                outline: none;
+                transition: all $transition-change-time ease 0s;
+                &:focus,
+                &:hover {
+                    box-shadow: 0px 0px 5px 0px $main-color;
+                }
+                @include mq(sp) {
+                    font-size: 1.4rem;
+                }
+            }
+            button {
+                font-size: 1.8rem;
+                position: absolute;
+                top: 50%;
+                right: 12px;
+                transform: translateY(-50%);
+                border: none;
+                background-color: transparent;
+                color: $main-color;
+                cursor: pointer;
+                transition: all $transition-change-time ease 0s;
+                &:hover {
+                    opacity: $hover-opacity;
+                }
+                @include mq(sp) {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+    // こだわり条件：座標（3,1）〜（3,2）
+    &__condition {
+        grid-row: 1 / 3;
+        grid-column: 3 / 4;
+
+        @include mq(tab-only) {
+            margin-top: 25px;
+        }
+
+        @include mq(sp) {
+            margin-top: 20px;
+        }
+        &--content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding: 20px 25px 30px;
+            border: 3px solid $main-color;
+            border-radius: 5px;
+            background-color: #f9f4e9;
+            @include mq(tab-only) {
+                justify-content: flex-start;
+            }
+
+            @include mq(sp) {
+                padding: 10px 10px 20px;
+            }
+        }
+        &--category {
+            position: relative;
+            width: 49%;
+            height: 100px;
+            margin-top: 10px;
+            border: 2px solid $main-color;
+            border-radius: 5px;
+            background-color: $white;
+            text-align: center;
+            cursor: pointer;
+            transition: all $transition-change-time ease 0s;
+
+            @include mq(tab-only) {
+                $item-margin-tab: 10px;
+                $item-num-tab: 2;
+                width: getCardWith($item-margin-tab,$item-num-tab);
+                font-size: 1.4rem;
+                // 余白 - 左
+                &:not(:nth-child(#{$item-num-tab}n+1)) {
+                    margin-left: $item-margin-tab;
+                }
+            }
+
+            @include mq(sp) {
+                $item-margin-sp: 10px;
+                $item-num-sp: 2;
+                width: getCardWith($item-margin-sp,$item-num-sp);
+
+                margin-top: 10px;
+                font-size: 1.4rem;
+
+                // 余白 - 左
+                &:not(:nth-child(#{$item-num-sp}n+1)) {
+                    margin-left: $item-margin-sp;
+                }
+                span.category--inner{
+                    span {
+                        font-size: 1rem;
+                    }
+                }
+            }
+            form{
+                width: 100%;
+                height: 100%;
+                button{
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                    background-color: transparent;
+                    cursor: pointer;
+                }
+            }
+            span.category--inner{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 100%;
+                transform: translate(-50%,-50%);
+                color: $main-color;
+                font-size: 1.6rem;
+                font-weight: $font-weight-bold;
+                >.lang-china {
+                    font-size: 1.2rem;
+                    line-height: 1.3;
+                }
+            }
+            span.small{
+                font-size: 1.3rem;
+            }
+            // &::before {
+            //     display: block;
+            //     position: absolute;
+            //     top: 50%;
+            //     left: 5px;
+            //     transform: translateY(-50%);
+            //     color: $main-color;
+            //     font-family: $font-family-fonwawesome;
+            //     font-weight: $font-weight-bold;
+            //     content: '\f138';
+            // }
+            &:hover {
+                opacity: $hover-opacity;
+            }
+        }
+    }
+}

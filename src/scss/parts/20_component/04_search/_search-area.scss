@@ -1,0 +1,173 @@
+.search-area {
+	&__container {
+		// 
+	}
+
+	&__title {
+		font-weight: $font-weight-bold;
+		font-size: 2.4rem;
+		@include mq(sp) {
+			font-size: 2rem;
+		}
+		>.lang-china {
+			display: block;
+			margin-top: 5px;
+			font-size: 1.8rem;
+			@include mq(sp) {
+				font-size: 1.4rem;
+			}
+		}
+	}
+
+	&__content {
+        position: relative;
+		height: 510px;
+		margin-top: 20px;
+		background: url(../img/20_component/top/map.png) no-repeat center/contain;
+		border: 2px solid $dark-red;
+		border-radius: 5px;
+		@include mq(sp) {
+			width: 100%;
+			height: 330px;
+			border: 2px solid $main-color;
+			border-radius: 5px;
+		}
+	}
+
+    &__img{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+		@include mq(sp) {
+			width: 100%;
+			height: 100%;
+		}
+        img{
+            width: 100%;
+        }
+		&--pc{
+			@include mq(sp) {
+				display: none;
+			}
+		}
+		&--sp{
+			@include mq(pc) {
+				display: none;
+			}
+		}
+    }
+
+	&__item{
+		text-align: center;
+		
+		width: 160px;
+		position: absolute;
+		border: 2px solid $main-color;
+		border-radius: 5px;
+		background-color: $white;
+		transition: all $transition-change-time ease 0s;
+		
+		@include mq(sp) {
+			width: 100px;
+		}
+		form{
+			width: 100%;
+			height: 100%;
+			button{
+				display: block;
+				width: 100%;
+				height: 100%;
+				padding: 10px 0;
+				border: none;
+				background-color: transparent;
+				cursor: pointer;
+				transition: all $transition-change-time ease 0s;
+				&:hover {
+					opacity: $hover-opacity;
+				}
+			}
+		}
+		&--title{
+			color: $main-color;
+			font-weight: $font-weight-bold;
+			font-size: 1.4rem;
+			>.lang-china{
+				font-size: 1rem;
+			}
+			@include mq(sp) {
+				font-size: 1rem;
+			}
+		}
+		&--text{
+			margin-top: 10px;
+			font-size: 1.1rem;
+			line-height: 1.4;
+			@include mq(sp) {
+				display: none;
+			}
+		}
+
+		// 北海道
+		&.hokkaido{
+			top: 5%;
+			right: 8%;
+			@include mq(sp) {
+				top: 3%;
+			}
+		}
+		// 関東
+		&.kanto{
+			top: 45%;
+			right: 12%;
+			@include mq(sp) {
+				top: auto;
+				bottom: 20%;
+				right: 8%;
+			}
+		}
+		// 甲信越
+		&.koushinetsu{
+			top: 10%;
+			right: 40%;
+			@include mq(tab-only) {
+				right: 32%;
+				top: 22%;
+			}
+			@include mq(sp) {
+				top: 40%;
+				right: 20%;
+			}
+		}
+		// 近畿・北陸
+		&.kinki{
+			top: 5%;
+			left: 24%;
+			@include mq(tab-only) {
+				left: 25%;
+			}
+			@include mq(sp) {
+				top: 20%;
+			}
+		}
+		// 中国
+		&.chugoku{
+			top: 5%;
+			left: 3%;
+			@include mq(sp) {
+				top: auto;
+				bottom: 20%;
+				left: 20%;
+			}
+		}
+		// 九州
+		&.kyushu{
+			bottom: 6%;
+			left: 3%;
+			@include mq(sp) {
+				bottom: 45%;
+				left: 1%;
+			}
+		}
+	}
+}

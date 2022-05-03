@@ -1,0 +1,77 @@
+.top-school {
+	$item-margin-pc: 20px;
+	$item-num-pc: 4;
+
+	&__title {
+		&::before {
+			content: '\f0eb';
+		}
+		>.lang-china{
+			display: block;
+			margin-top: 5px;
+			margin-left: 0;
+        }
+	}
+
+	&__container {
+		margin-top: 30px;
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	&__item {
+		border-radius: 5px;
+
+		@include mq(pc) {
+			$item-margin-pc: 25px;
+			$item-num-pc: 3;
+			width: getCardWith($item-margin-pc,$item-num-pc);
+			// 余白 - 上
+			&:not(:nth-child(-n+#{$item-num-pc})) {
+				margin-top: 40px;
+			}
+			// 余白 - 左
+			&:not(:nth-child(#{$item-num-pc}n+1)) {
+				margin-left: $item-margin-pc;
+			}
+		}
+
+		@include mq(sp) {
+			$item-margin-sp: 10px;
+			$item-num-sp: 2;
+			width: getCardWith($item-margin-sp,$item-num-sp);
+			// 余白 - 上
+			&:not(:nth-child(-n+#{$item-num-sp})) {
+				margin-top: 20px;
+			}
+			// 余白 - 左
+			&:not(:nth-child(#{$item-num-sp}n+1)) {
+				margin-left: $item-margin-sp;
+			}
+		}
+		a{
+			display: block;
+		}
+		&--img {
+			width: 100%;
+			img {
+				width: 100%;
+			}
+		}
+
+		&--text {
+			margin-top: 10px;
+			font-size: 1.4rem;
+			line-height: 1.4;
+			@include mq(tab-only) {
+				font-size: 1.2rem;
+			}
+			@include mq(sp) {
+				font-size: 1rem;
+			}
+		}
+	}
+}
