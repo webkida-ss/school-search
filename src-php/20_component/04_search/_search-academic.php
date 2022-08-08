@@ -28,7 +28,7 @@ $slug = $page->post_name;
 									<button type="submit">
 										<?php echo $field[0]; ?><br>
 										<span class="lang-china">
-											<span class="lang-china-han"><?php echo $field[1]; ?></span><br />
+											<span class="lang-china-han"><?php echo $field[1]; ?></span>
 											<span class="lang-china-kan"><?php echo $field[2]; ?></span>
 										</span>
 									</button>
